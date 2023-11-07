@@ -22,7 +22,7 @@ function App() {
       <h1>todo app</h1>
       {addStatuses.map(status => (
       <section key={status}>
-        <h3>Add Task {status}</h3>
+        <h3>Add Task ({status})</h3>
         <AddTask status={status}/>
       </section>))}
       <TaskList statuses={taskStatuses}/>

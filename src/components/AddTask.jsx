@@ -3,7 +3,7 @@ export default function AddTask({status}) {
         return (
             <div className="addtask-container">
                 <label>
-                    Task Description
+                    Task Description:
                     <input type="textarea" value={
                         status === 'editing' ? "A task description" : ""
                     }/>
