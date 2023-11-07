@@ -1,14 +1,6 @@
 import Task from "./Task";
 
-let statuses = [
-  'empty',
-  'editing',
-  'saving',
-  'saved',
-  'done'
-]
-
-export default function TaskList() {
+export default function TaskList({statuses}) {
   return (
     <>
       {statuses.map(status => (
