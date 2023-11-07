@@ -1,5 +1,5 @@
-import Task from "./Task"
+import Task from "./Task";
 
 export default function TaskList() {
-    return <Task />
+  return <Task />;
 }

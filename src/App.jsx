@@ -1,6 +1,6 @@
-import AddTask from './components/AddTask'
-import TaskList from './components/TaskList'
-import './App.css'
+import AddTask from "./components/AddTask";
+import TaskList from "./components/TaskList";
+import "./App.css";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <AddTask />
       <TaskList />
     </>
-  )
+  );
 }
 
 export default App;
