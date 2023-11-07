@@ -1,27 +1,26 @@
 .task-container {
-    width: fit-content;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
-    border: .1px solid #0000003a;
+  width: fit-content;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  border: 0.1px solid #0000003a;
 }
 
 .addtask-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  padding: 10px;
+  border: 0.1px solid #0000003a;
+
+  & label {
     display: flex;
-    align-items: baseline;
-    justify-content: space-evenly;
-    padding: 10px;
-    border: .1px solid #0000003a;  
+    gap: 10px;
 
-    & label {
-        display: flex;
-        gap: 10px;
-
-        & input {
-            min-width: 150px;
-        }
+    & input {
+      min-width: 150px;
     }
+  }
 }
-

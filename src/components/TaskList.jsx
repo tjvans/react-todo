@@ -1,14 +1,14 @@
 import Task from "./Task";
 
-export default function TaskList({statuses}) {
+export default function TaskList({ statuses }) {
   return (
     <>
-      {statuses.map(status => (
+      {statuses.map((status) => (
         <section key={status}>
           <h3>Task ({status}):</h3>
-          <Task status={status}/>
+          <Task status={status} />
         </section>
       ))}
     </>
-  )
+  );
 }
