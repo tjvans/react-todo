@@ -1,0 +1,9 @@
+.task-container {
+    width: fit-content;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    border: .1px solid black;
+}
