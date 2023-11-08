@@ -1,4 +1,4 @@
-import "../App.css";
+import "../css/Mock.css";
 
 let addStatuses = ["empty", "editing", "saving"];
 

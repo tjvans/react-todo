@@ -2,9 +2,9 @@ import { useState } from "react";
 import AddTask from "./components/AddTask";
 import TaskList from "./components/TaskList";
 import Mock from "./storybook/Mock";
-import "./App.css";
+import "./css/App.css";
 
-let showMock = false;
+let showMock = true;
 
 let nextId = 0;
 const initialTask = [
