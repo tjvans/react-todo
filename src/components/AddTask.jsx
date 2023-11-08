@@ -6,7 +6,9 @@ export default function AddTask({ status }) {
           Task Description:
           <input
             type="textarea"
-            value={status === "editing" ? "A task description" : ""}
+            value={status === "editing" || status === 
+            "saving" ? "A task description" : ""}
+            disabled={status === "saving"}
           />
         </label>
         <button disabled={status === "empty" || status === "saving"}>
