@@ -3,11 +3,12 @@ import TaskList from "./components/TaskList";
 import Mock from "./components/Mock";
 import "./App.css";
 
+let showMock = true;
 
 function App() {
   return (
     <>
-      <Mock />
+      {showMock && <Mock />}
     </>
   );
 }
