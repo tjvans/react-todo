@@ -1,20 +1,29 @@
-export default function AddTask({ status }) {
-  if (status === "editing" || status === "empty" || status === "saving") {
-    return (
-      <div className="addtask-container">
-        <label>
-          Task Description:
-          <input
-            type="textarea"
-            value={status === "editing" || status === 
-            "saving" ? "A task description" : ""}
-            disabled={status === "saving"}
-          />
-        </label>
-        <button disabled={status === "empty" || status === "saving"}>
-          Add Task
-        </button>
-      </div>
-    );
-  }
+import { useState } from "react";
+
+export default function AddTask({ onAddTask }) {
+  const [descriptionText, setDescriptionText] = useState("")
+  const [status, setStatus] = useState("editing");
+
+  return (
+    <div className="addtask-container">
+      <label>
+        Task Description:
+        <textarea
+          value={descriptionText}
+          onChange={(e) => setDescriptionText(e.target.value)}
+          placeholder={status === "editing" || status === 
+          "saving" ? "Enter a task description" : ""}
+          disabled={status === "saving"}
+        />
+      </label>
+      <button 
+        onClick={() => {
+          setDescriptionText('')
+          onAddTask(descriptionText)
+        }}
+        disabled={status === "empty" || status === "saving"}>
+        Add Task
+      </button>
+    </div>
+  );
 }

@@ -26,8 +26,7 @@ function AddTask({ status }) {
         <div className="addtask-container">
             <label>
             Task Description:
-            <input
-                type="textarea"
+            <textarea
                 value={status === "editing" || status === 
                 "saving" ? "A task description" : ""}
                 disabled={status === "saving"}
