@@ -7,12 +7,13 @@ import "./App.css";
 let showMock = false;
 
 let nextId = 0;
-const initialTask = [{
-  id: 0,
-  description: "This is an example of a task.",
-  done: false
+const initialTask = [
+  {
+    id: 0,
+    description: "This is an example of a task.",
+    done: false,
   },
-]
+];
 
 function App() {
   const [tasks, setTasks] = useState(initialTask);
@@ -24,26 +25,30 @@ function App() {
       ...tasks,
       {
         id: nextId++,
-        description: taskDescription
-      }]);
+        description: taskDescription,
+      },
+    ]);
   }
 
   return (
     <div className="app-container">
       {showMock && <Mock />}
-      {!showMock && <>
-        <AddTask taskDescription={taskDescription} onAddTask={handleAddTask} /> 
-        <TaskList 
-          tasks={tasks} 
-          onChangeDescription={setTasks} 
-          isSelected={selectedTask} 
-          onChangeSelected={setSelectedTask} 
-        />
-      </>}
+      {!showMock && (
+        <>
+          <AddTask
+            taskDescription={taskDescription}
+            onAddTask={handleAddTask}
+          />
+          <TaskList
+            tasks={tasks}
+            onChangeDescription={setTasks}
+            isSelected={selectedTask}
+            onChangeSelected={setSelectedTask}
+          />
+        </>
+      )}
     </div>
   );
 }
-
-
 
 export default App;

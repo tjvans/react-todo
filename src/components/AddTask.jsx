@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function AddTask({ onAddTask }) {
-  const [descriptionText, setDescriptionText] = useState("")
+  const [descriptionText, setDescriptionText] = useState("");
   const [status, setStatus] = useState("editing");
 
   return (
@@ -11,17 +11,21 @@ export default function AddTask({ onAddTask }) {
         <textarea
           value={descriptionText}
           onChange={(e) => setDescriptionText(e.target.value)}
-          placeholder={status === "editing" || status === 
-          "saving" ? "Enter a task description" : ""}
+          placeholder={
+            status === "editing" || status === "saving"
+              ? "Enter a task description"
+              : ""
+          }
           disabled={status === "saving"}
         />
       </label>
-      <button 
+      <button
         onClick={() => {
-          setDescriptionText('')
-          onAddTask(descriptionText)
+          setDescriptionText("");
+          onAddTask(descriptionText);
         }}
-        disabled={status === "empty" || status === "saving"}>
+        disabled={status === "empty" || status === "saving"}
+      >
         Add Task
       </button>
     </div>
