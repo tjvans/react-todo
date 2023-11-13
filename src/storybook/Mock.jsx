@@ -60,11 +60,12 @@ function Task({ status }) {
   if (status === "saved" || status === "done") {
     return (
       <div className="task-container">
-        <p>Description of task</p>
+        <p>A task description</p>
         <label>
           Done
           <input type="checkbox" checked={status === "saved" ? false : true} />
         </label>
+        {status === "saved" && <button>Edit Task</button>}
         <button>Remove Task</button>
       </div>
     );
