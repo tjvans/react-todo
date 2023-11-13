@@ -1,5 +1,6 @@
 import Task from "./Task";
 
-export default function TaskList({ statuses }) {
+export default function TaskList({ tasks, onChangeTask
+}) {
   return;
 }

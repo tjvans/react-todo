@@ -2,7 +2,17 @@ import { useState } from "react";
 
 export default function AddTask({ onAddTask }) {
   const [descriptionText, setDescriptionText] = useState("");
-  const [status, setStatus] = useState("editing");
+  const [status, setStatus] = useState("empty");
+
+  function handleChange (e) {
+    setDescriptionText(e.target.value)
+    !e.target.value ? setStatus("empty") : setStatus("editing")
+  }
+
+  function handleClick() {
+    setDescriptionText("");
+    onAddTask(descriptionText);
+  }
 
   return (
     <div className="addtask-container">
@@ -10,22 +20,14 @@ export default function AddTask({ onAddTask }) {
         Task Description:
         <textarea
           value={descriptionText}
-          onChange={(e) => setDescriptionText(e.target.value)}
-          placeholder={
-            status === "editing" || status === "saving"
-              ? "Enter a task description"
-              : ""
-          }
+          onChange={handleChange}
+          placeholder={"Enter a task description"}
           disabled={status === "saving"}
         />
       </label>
       <button
-        onClick={() => {
-          setDescriptionText("");
-          onAddTask(descriptionText);
-        }}
-        disabled={status === "empty" || status === "saving"}
-      >
+        onClick={handleClick}
+        disabled={status === "empty" || status === "saving"}>
         Add Task
       </button>
     </div>

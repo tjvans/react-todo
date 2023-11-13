@@ -4,7 +4,7 @@ import TaskList from "./components/TaskList";
 import Mock from "./storybook/Mock";
 import "./css/App.css";
 
-let showMock = true;
+let showMock = false;
 
 let nextId = 0;
 const initialTask = [
@@ -26,8 +26,13 @@ function App() {
       {
         id: nextId++,
         description: taskDescription,
+        done: false
       },
     ]);
+  }
+
+  function handleChangeTask() {
+
   }
 
   return (
@@ -36,14 +41,11 @@ function App() {
       {!showMock && (
         <>
           <AddTask
-            taskDescription={taskDescription}
             onAddTask={handleAddTask}
           />
           <TaskList
             tasks={tasks}
-            onChangeDescription={setTasks}
-            isSelected={selectedTask}
-            onChangeSelected={setSelectedTask}
+            onChangeTask={handleChangeTask}
           />
         </>
       )}
