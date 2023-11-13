@@ -4,9 +4,9 @@ export default function AddTask({ onAddTask }) {
   const [descriptionText, setDescriptionText] = useState("");
   const [status, setStatus] = useState("empty");
 
-  function handleChange (e) {
-    setDescriptionText(e.target.value)
-    !e.target.value ? setStatus("empty") : setStatus("editing")
+  function handleChange(e) {
+    setDescriptionText(e.target.value);
+    !e.target.value ? setStatus("empty") : setStatus("editing");
   }
 
   function handleClick() {
@@ -27,7 +27,8 @@ export default function AddTask({ onAddTask }) {
       </label>
       <button
         onClick={handleClick}
-        disabled={status === "empty" || status === "saving"}>
+        disabled={status === "empty" || status === "saving"}
+      >
         Add Task
       </button>
     </div>

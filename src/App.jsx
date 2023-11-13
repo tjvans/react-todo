@@ -26,27 +26,20 @@ function App() {
       {
         id: nextId++,
         description: taskDescription,
-        done: false
+        done: false,
       },
     ]);
   }
 
-  function handleChangeTask() {
-
-  }
+  function handleChangeTask() {}
 
   return (
     <div className="app-container">
       {showMock && <Mock />}
       {!showMock && (
         <>
-          <AddTask
-            onAddTask={handleAddTask}
-          />
-          <TaskList
-            tasks={tasks}
-            onChangeTask={handleChangeTask}
-          />
+          <AddTask onAddTask={handleAddTask} />
+          <TaskList tasks={tasks} onChangeTask={handleChangeTask} />
         </>
       )}
     </div>
