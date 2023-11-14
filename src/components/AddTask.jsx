@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function AddTask({ onAddTask }) {
   const [descriptionText, setDescriptionText] = useState("");
   const [inputStatus, setInputStatus] = useState("empty");
-  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   function handleChange(e) {
     setDescriptionText(e.target.value);
