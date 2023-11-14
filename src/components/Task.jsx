@@ -16,11 +16,10 @@ export default function Task({ task, onChange, onDelete }) {
               description: e.target.value
             })
           }}
-          disabled={taskStatus === "saving"} 
         />
         <button 
           onClick={() => setTaskStatus("saved")}
-          disabled={taskStatus === "empty" || taskStatus === "saving"}>
+          disabled={taskStatus === "empty"}>
             Save
         </button>
       </>
