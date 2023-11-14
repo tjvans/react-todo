@@ -22,21 +22,24 @@ export default function AddTask({ onAddTask }) {
 
   return (
     <div className="addtask-container">
-      <label>
-        Task Description:
-        <textarea
-          value={descriptionText}
-          onChange={handleChange}
-          placeholder={"Enter a task description"}
-          disabled={inputStatus === "saving"}
-        />
-      </label>
-      <button
-        onClick={handleClick}
-        disabled={inputStatus === "empty" || inputStatus === "saving"}
-      >
-        Add Task
-      </button>
+      {inputStatus !== "saving" && <>
+        <label>
+          Task Description:
+          <textarea
+            id="taskDescription"
+            value={descriptionText}
+            onChange={handleChange}
+            placeholder={"Enter a task description"}
+            disabled={inputStatus === "saving"}
+          />
+        </label>
+        <button
+          onClick={handleClick}
+          disabled={inputStatus === "empty" || inputStatus === "saving"}
+        >
+          Add Task
+        </button> 
+      </>}
       {inputStatus === "saving" && <div id="saving">Saving</div>}
     </div>
   );
