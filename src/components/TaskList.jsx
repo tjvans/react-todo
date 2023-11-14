@@ -5,12 +5,14 @@ export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
     return element
   })
   return (
-    <ul>
-      {descendingTasks.map((task) => (
-        <li key={task.id}>
-          <Task task={task} onChange={onChangeTask} onDelete={onDeleteTask} />
-        </li>
-      ))}
-    </ul>
+    <div className="tasklist-container">
+      <ul>
+        {descendingTasks.map((task) => (
+          <li key={task.id}>
+            <Task task={task} onChange={onChangeTask} onDelete={onDeleteTask} />
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
