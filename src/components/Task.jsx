@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function Task({ task, onChange, onDelete }) {
   const [taskStatus, setTaskStatus] = useState("saved")
   let taskContent;
-  console.log(taskStatus)
 
   if (taskStatus === "editing") {
     taskContent = (
@@ -34,8 +33,6 @@ export default function Task({ task, onChange, onDelete }) {
   }
   return (
     <div className="task-container">
-      <label>
-          Done
           <input type="checkbox" 
             checked={task.done}
             onChange={(e) => {
@@ -45,7 +42,6 @@ export default function Task({ task, onChange, onDelete }) {
               })
             }}
           />
-        </label>
         {taskContent}
         <button onClick={() => onDelete(task.id)}>Remove Task</button>
     </div>
