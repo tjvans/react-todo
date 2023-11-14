@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export default function Task({ task, onChange, onDelete }) {
   const [taskStatus, setTaskStatus] = useState("saved")
-  const delay = ms => new Promise(res => setTimeout(res, ms))
   let taskContent;
   console.log(taskStatus)
 
