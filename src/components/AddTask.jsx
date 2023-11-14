@@ -2,16 +2,22 @@ import { useState } from "react";
 
 export default function AddTask({ onAddTask }) {
   const [descriptionText, setDescriptionText] = useState("");
-  const [status, setStatus] = useState("empty");
+  const [inputStatus, setInputStatus] = useState("empty");
+  const delay = ms => new Promise(res => setTimeout(res, ms))
 
   function handleChange(e) {
     setDescriptionText(e.target.value);
-    !e.target.value ? setStatus("empty") : setStatus("editing");
+    !e.target.value ? setInputStatus("empty") : setInputStatus("editing");
   }
 
-  function handleClick() {
-    setDescriptionText("");
+  const handleClick = async () => {
+    setInputStatus("saving");
     onAddTask(descriptionText);
+    // simulate task upload
+    await delay(2000);
+    console.log("Task added")
+    setDescriptionText("");
+    setInputStatus("empty");
   }
 
   return (
@@ -22,15 +28,16 @@ export default function AddTask({ onAddTask }) {
           value={descriptionText}
           onChange={handleChange}
           placeholder={"Enter a task description"}
-          disabled={status === "saving"}
+          disabled={inputStatus === "saving"}
         />
       </label>
       <button
         onClick={handleClick}
-        disabled={status === "empty" || status === "saving"}
+        disabled={inputStatus === "empty" || inputStatus === "saving"}
       >
         Add Task
       </button>
+      {inputStatus === "saving" && <div id="saving">Saving</div>}
     </div>
   );
 }

@@ -17,8 +17,6 @@ const initialTask = [
 
 function App() {
   const [tasks, setTasks] = useState(initialTask);
-  const [selectedTask, setSelectedTask] = useState(0);
-  const taskDescription = tasks.description;
 
   function handleAddTask(taskDescription) {
     setTasks([
@@ -31,7 +29,9 @@ function App() {
     ]);
   }
 
-  function handleChangeTask() {}
+  function handleChangeTask(task) {}
+
+  function handleDeleteTask(taskId) {}
 
   return (
     <div className="app-container">
@@ -39,7 +39,7 @@ function App() {
       {!showMock && (
         <>
           <AddTask onAddTask={handleAddTask} />
-          <TaskList tasks={tasks} onChangeTask={handleChangeTask} />
+          <TaskList tasks={tasks} onChangeTask={handleChangeTask} onDeleteTask={handleDeleteTask} />
         </>
       )}
     </div>
