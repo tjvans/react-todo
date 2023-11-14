@@ -41,7 +41,9 @@ function App() {
     )
   }
 
-  function handleDeleteTask(taskId) {}
+  function handleDeleteTask(taskId) {
+    setTasks(tasks.filter((oldTask) => oldTask.id !==taskId))
+  }
 
   return (
     <div className="app-container">
