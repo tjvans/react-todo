@@ -1,9 +1,12 @@
 import Task from "./Task";
 
 export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
-  const descendingTasks = tasks.slice(0).reverse().map(element => {
-    return element
-  })
+  const descendingTasks = tasks
+    .slice(0)
+    .reverse()
+    .map((element) => {
+      return element;
+    });
   return (
     <div className="tasklist-container">
       <ul>
