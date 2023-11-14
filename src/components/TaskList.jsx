@@ -17,5 +17,5 @@ export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
         ))}
       </ul>
     </div>
-  )
+  );
 }

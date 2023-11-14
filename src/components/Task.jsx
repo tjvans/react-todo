@@ -1,49 +1,51 @@
 import { useState } from "react";
 
 export default function Task({ task, onChange, onDelete }) {
-  const [taskStatus, setTaskStatus] = useState("saved")
+  const [taskStatus, setTaskStatus] = useState("saved");
   let taskContent;
 
   if (taskStatus === "editing") {
     taskContent = (
       <>
-        <textarea 
+        <textarea
           value={task.description}
           onChange={(e) => {
             onChange({
               ...task,
-              description: e.target.value
-            })
+              description: e.target.value,
+            });
           }}
         />
-        <button 
+        <button
           onClick={() => setTaskStatus("saved")}
-          disabled={taskStatus === "empty"}>
-            Save
+          disabled={taskStatus === "empty"}
+        >
+          Save
         </button>
       </>
-    )
+    );
   } else {
     taskContent = (
       <>
-      {task.description}
-      <button onClick={() => setTaskStatus("editing")}>Edit Task</button>
-    </>
-    )
+        {task.description}
+        <button onClick={() => setTaskStatus("editing")}>Edit Task</button>
+      </>
+    );
   }
   return (
     <div className="task-container">
-          <input type="checkbox" 
-            checked={task.done}
-            onChange={(e) => {
-              onChange({
-                ...task,
-                done: e.target.checked,
-              })
-            }}
-          />
-        {taskContent}
-        <button onClick={() => onDelete(task.id)}>Remove Task</button>
+      <input
+        type="checkbox"
+        checked={task.done}
+        onChange={(e) => {
+          onChange({
+            ...task,
+            done: e.target.checked,
+          });
+        }}
+      />
+      {taskContent}
+      <button onClick={() => onDelete(task.id)}>Remove Task</button>
     </div>
   );
 }

@@ -38,12 +38,12 @@ function App() {
         } else {
           return oldTask;
         }
-      })
-    )
+      }),
+    );
   }
 
   function handleDeleteTask(selectedTask) {
-    setTasks(tasks.filter((oldTask) => oldTask.id !== selectedTask))
+    setTasks(tasks.filter((oldTask) => oldTask.id !== selectedTask));
   }
 
   return (
@@ -52,7 +52,11 @@ function App() {
       {!showMock && (
         <>
           <AddTask onAddTask={handleAddTask} />
-          <TaskList tasks={tasks} onChangeTask={handleChangeTask} onDeleteTask={handleDeleteTask} />
+          <TaskList
+            tasks={tasks}
+            onChangeTask={handleChangeTask}
+            onDeleteTask={handleDeleteTask}
+          />
         </>
       )}
     </div>
