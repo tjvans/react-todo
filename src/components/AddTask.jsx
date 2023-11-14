@@ -7,7 +7,7 @@ export default function AddTask({ onAddTask }) {
 
   function handleChange(e) {
     setDescriptionText(e.target.value);
-    !e.target.value ? setInputStatus("empty") : setInputStatus("editing");
+    e.target.value ? setInputStatus("editing") : setInputStatus("empty");
   }
 
   const handleClick = async () => {

@@ -29,7 +29,17 @@ function App() {
     ]);
   }
 
-  function handleChangeTask(task) {}
+  function handleChangeTask(selectedTask) {
+    setTasks(
+      tasks.map((oldTask) => {
+        if (oldTask.id === selectedTask.id) {
+          return selectedTask;
+        } else {
+          return oldTask;
+        }
+      })
+    )
+  }
 
   function handleDeleteTask(taskId) {}
 
