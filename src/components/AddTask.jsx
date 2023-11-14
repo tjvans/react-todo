@@ -10,12 +10,9 @@ export default function AddTask({ onAddTask }) {
     e.target.value ? setInputStatus("editing") : setInputStatus("empty");
   }
 
-  const handleClick = async () => {
+  function handleClick() {
     setInputStatus("saving");
     onAddTask(descriptionText);
-    // simulate task upload
-    await delay(2000);
-    console.log("Task added")
     setDescriptionText("");
     setInputStatus("empty");
   }

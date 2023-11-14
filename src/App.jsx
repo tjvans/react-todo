@@ -6,7 +6,6 @@ import "./css/App.css";
 
 let showMock = false;
 
-let nextId = 0;
 const initialTask = [
   {
     id: 0,
@@ -14,6 +13,8 @@ const initialTask = [
     done: false,
   },
 ];
+
+let nextId = initialTask.length;
 
 function App() {
   const [tasks, setTasks] = useState(initialTask);
@@ -41,8 +42,8 @@ function App() {
     )
   }
 
-  function handleDeleteTask(taskId) {
-    setTasks(tasks.filter((oldTask) => oldTask.id !==taskId))
+  function handleDeleteTask(selectedTask) {
+    setTasks(tasks.filter((oldTask) => oldTask.id !== selectedTask))
   }
 
   return (
