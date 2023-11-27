@@ -1,49 +1,37 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import AddTask from "./components/AddTask";
 import TaskList from "./components/TaskList";
 import Mock from "./storybook/Mock";
+import { initialState, taskReducer } from "./reducer/taskReducer";
 import "./css/App.css";
 
 let showMock = false;
 
-const initialTask = [
-  {
-    id: 0,
-    description: "This is an example of a task.",
-    done: false,
-  },
-];
-
-let nextId = initialTask.length;
+let nextId = initialState.length;
 
 function App() {
-  const [tasks, setTasks] = useState(initialTask);
+  const [tasks, dispatch] = useReducer(taskReducer, initialState);
 
   function handleAddTask(taskDescription) {
-    setTasks([
-      ...tasks,
-      {
-        id: nextId++,
-        description: taskDescription,
-        done: false,
-      },
-    ]);
+    dispatch({
+      type: 'added',
+      id: nextId++,
+      text: taskDescription,
+    });
   }
 
   function handleChangeTask(selectedTask) {
-    setTasks(
-      tasks.map((oldTask) => {
-        if (oldTask.id === selectedTask.id) {
-          return selectedTask;
-        } else {
-          return oldTask;
-        }
-      }),
-    );
+    dispatch({
+      type: 'changed',
+      selectedTask: selectedTask,
+    });
   }
 
   function handleDeleteTask(selectedTask) {
-    setTasks(tasks.filter((oldTask) => oldTask.id !== selectedTask));
+    dispatch({
+      type: 'deleted',
+      id: selectedTask,
+    });
   }
 
   return (
