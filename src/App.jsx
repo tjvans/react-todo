@@ -14,7 +14,7 @@ function App() {
 
   function handleAddTask(taskDescription) {
     dispatch({
-      type: 'added',
+      type: "added",
       id: nextId++,
       text: taskDescription,
     });
@@ -22,14 +22,14 @@ function App() {
 
   function handleChangeTask(selectedTask) {
     dispatch({
-      type: 'changed',
+      type: "changed",
       selectedTask: selectedTask,
     });
   }
 
   function handleDeleteTask(selectedTask) {
     dispatch({
-      type: 'deleted',
+      type: "deleted",
       id: selectedTask,
     });
   }
