@@ -1,3 +1,19 @@
+.calendar-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  border: 0.1px solid #0000003a;
+}
+.calendar-container .days-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: center;
+}
+
 .task-container {
   width: fit-content;
   display: flex;

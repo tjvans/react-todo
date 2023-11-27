@@ -5,7 +5,7 @@ import Mock from "./storybook/Mock";
 import { initialState, taskReducer } from "./reducer/taskReducer";
 import "./css/App.css";
 
-let showMock = false;
+let showMock = true;
 
 let nextId = initialState.length;
 
