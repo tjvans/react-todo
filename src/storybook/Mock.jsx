@@ -27,22 +27,34 @@ export default function Mock() {
   );
 }
 
-function Calendar ({ status }) {
-  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-  const month = []
+function Calendar({ status }) {
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const month = [];
   for (let i = 1; i <= 31; i++) {
-    month[i] = <td key={i}><button>{i}</button></td>
+    month[i] = (
+      <td key={i}>
+        <button>{i}</button>
+      </td>
+    );
   }
   if (status === "selectDate") {
-  return (
+    return (
       <div className="calendar-container">
         <div className="month-year-selector">
-          <button>Prev Year</button><button>Prev Month</button><button>Select Month/Year</button><button>Next Month</button><button>Next Year</button>
+          <button>Prev Year</button>
+          <button>Prev Month</button>
+          <button>Select Month/Year</button>
+          <button>Next Month</button>
+          <button>Next Year</button>
         </div>
         <div className="days-table">
           <table>
             <thead>
-              <tr>{weekdays.map((weekday) => <td key={weekday}>{weekday}</td>)}</tr>
+              <tr>
+                {weekdays.map((weekday) => (
+                  <td key={weekday}>{weekday}</td>
+                ))}
+              </tr>
             </thead>
             <tbody>
               <tr>{month.slice(0, 8).map((day) => day)}</tr>
@@ -54,15 +66,19 @@ function Calendar ({ status }) {
           </table>
         </div>
       </div>
-    )
+    );
   }
   return (
     <div className="calendar-container">
-        <div className="month-year-selector">
-          <button>Prev Day</button><button><h1>Current Date / Select Date</h1></button><button>Next Day</button>
+      <div className="month-year-selector">
+        <button>Prev Day</button>
+        <button>
+          <h1>Current Date / Select Date</h1>
+        </button>
+        <button>Next Day</button>
       </div>
     </div>
-  )
+  );
 }
 
 function AddTask({ status }) {
@@ -108,7 +124,11 @@ function Task({ status }) {
       <div className="task-container">
         <label>
           Done
-          <input type="checkbox" checked={status === "saved" ? false : true} readOnly={true}/>
+          <input
+            type="checkbox"
+            checked={status === "saved" ? false : true}
+            readOnly={true}
+          />
         </label>
         <p>A task description</p>
         {status === "saved" && <button>Edit Task</button>}
