@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 export default function Task({ task, onChange, onDelete }) {
-  const [taskStatus, setTaskStatus] = useState("saved");
+  const [status, setStatus] = useState("saved");
   let taskContent;
 
-  if (taskStatus === "editing") {
+  if (status === "editing") {
     taskContent = (
       <>
         <textarea
@@ -17,8 +17,8 @@ export default function Task({ task, onChange, onDelete }) {
           }}
         />
         <button
-          onClick={() => setTaskStatus("saved")}
-          disabled={taskStatus === "empty"}
+          onClick={() => setStatus("saved")}
+          disabled={status === "empty"}
         >
           Save
         </button>
@@ -28,7 +28,7 @@ export default function Task({ task, onChange, onDelete }) {
     taskContent = (
       <>
         {task.description}
-        <button onClick={() => setTaskStatus("editing")}>Edit Task</button>
+        <button onClick={() => setStatus("editing")}>Edit Task</button>
       </>
     );
   }

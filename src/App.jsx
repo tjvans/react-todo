@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import AddTask from "./components/AddTask";
 import TaskList from "./components/TaskList";
-import { SelectDate } from "./components/SelectDate";
+import TimeDate from "./components/TimeDate";
 import Mock from "./storybook/Mock";
 import { initialState, taskReducer } from "./reducer/taskReducer";
 import "./css/App.css";
@@ -40,7 +40,7 @@ function App() {
       {showMock && <Mock />}
       {!showMock && (
         <>
-          <SelectDate />
+          <TimeDate />
           <AddTask onAddTask={handleAddTask} />
           <TaskList
             tasks={tasks}
