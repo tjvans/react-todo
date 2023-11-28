@@ -7,8 +7,8 @@ export default function TimeDate() {
   const [time, setTime] = useState(() => new Date());
 
   // update time
-  let toExactMinute = 60000 - (new Date().getTime() % 60000)
-  
+  let toExactMinute = 60000 - (new Date().getTime() % 60000);
+
   function useTime() {
     useEffect(() => {
       setTimeout(() => {
@@ -16,27 +16,28 @@ export default function TimeDate() {
           setTime(new Date());
         }, 60000);
         return () => clearInterval(id);
-      }, toExactMinute)
+      }, toExactMinute);
     }, []);
     return time;
   }
   useTime();
 
-
   if (status === "select") {
     return (
       <div className="timedate-container">
-        <Calendar className="calender-component" onChange={setSelectedDate} value={selectedDate} />
+        <Calendar
+          className="calender-component"
+          onChange={setSelectedDate}
+          value={selectedDate}
+        />
       </div>
-    )
+    );
   }
 
   return (
     <div className="timedate-container">
-      {time.toLocaleString('default', { month: 'long' })}
-      {time.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})}
-      
+      {time.toLocaleString("default", { month: "long" })}
+      {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
     </div>
   );
 }
-
