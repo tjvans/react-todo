@@ -6,21 +6,37 @@ export default function TimeDate() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [time, setTime] = useState(() => new Date());
 
+  // update time
+  let toExactMinute = 60000 - (new Date().getTime() % 60000)
+  
   function useTime() {
     useEffect(() => {
-      const id = setInterval(() => {
-        setTime(new Date());
-      }, 1000);
-      return () => clearInterval(id);
+      setTimeout(() => {
+        const id = setInterval(() => {
+          setTime(new Date());
+        }, 60000);
+        return () => clearInterval(id);
+      }, toExactMinute)
     }, []);
     return time;
   }
-  const currentTime = useTime();
+  useTime();
+
+
+  if (status === "select") {
+    return (
+      <div className="timedate-container">
+        <Calendar className="calender-component" onChange={setSelectedDate} value={selectedDate} />
+      </div>
+    )
+  }
 
   return (
-    <div className="selectdate-container">
-      {time.toLocaleTimeString()}
-      <Calendar onChange={setSelectedDate} value={selectedDate} />
+    <div className="timedate-container">
+      {time.toLocaleString('default', { month: 'long' })}
+      {time.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})}
+      
     </div>
   );
 }
+
